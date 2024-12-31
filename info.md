@@ -1,5 +1,3 @@
-¡Ah, entiendo! Lo que necesitas es el contenido en formato Markdown **listo para ser renderizado en la web**, es decir, con el formato adecuado para que se vea bien en una página web o en un visualizador de Markdown. Aquí tienes el contenido en formato Markdown, listo para ser usado directamente:
-
 ```markdown
 # Manual de Usuario: API de Geolocalización
 
