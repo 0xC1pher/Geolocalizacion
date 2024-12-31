@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumo de API de Geolocalización</title>
+</head>
+<body>
+    <h1>Geolocalización</h1>
+    <button onclick="geolocalizarPorIP()">Geolocalización por IP</button>
+    <button onclick="geolocalizarPorWifi()">Geolocalización por Wi-Fi</button>
+    <button onclick="geolocalizarPorCelular()">Geolocalización por Celular</button>
+
+    <h2>Resultado:</h2>
+    <pre id="resultado"></pre>
+
+    <script>
+        // Función para geolocalización por IP
+        function geolocalizarPorIP() {
+            fetch('http://localhost:5000/geolocalizacion/ip')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('resultado').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('resultado').textContent = 'Error al obtener la ubicación por IP.';
+                });
+        }
+
+        // Función para geolocalización por Wi-Fi
+        function geolocalizarPorWifi() {
+            const mac_addresses = ["68:bc:0c:64:e6:3f", "c8:f9:f9:d4:80:df"]; // Ejemplo de direcciones MAC
+            fetch('http://localhost:5000/geolocalizacion/wifi', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ mac_addresses }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('resultado').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('resultado').textContent = 'Error al obtener la ubicación por Wi-Fi.';
+                });
+        }
+
+        // Función para geolocalización por Celular
+        function geolocalizarPorCelular() {
+            const cell_towers = [
+                {
+                    cellId: 73628675,
+                    locationAreaCode: 268,
+                    mobileCountryCode: 214,
+                    mobileNetworkCode: 1
+                }
+            ]; // Ejemplo de torres de celular
+            fetch('http://localhost:5000/geolocalizacion/celular', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ cell_towers }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('resultado').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('resultado').textContent = 'Error al obtener la ubicación por Celular.';
+                });
+        }
+    </script>
+</body>
+</html>

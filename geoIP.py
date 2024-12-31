@@ -4,9 +4,11 @@ from geolocation import obtener_geolocalizacion
 def geolocalizar_por_ip():
     datos = {"considerIp": "true"}
     resultado = obtener_geolocalizacion(datos)
-    if resultado:
-        print(f"Latitud: {resultado['location']['lat']}")
-        print(f"Longitud: {resultado['location']['lng']}")
-        print(f"Precisión: {resultado['accuracy']} metros")
+    if resultado and 'location' in resultado:
+        return {
+            "latitud": resultado['location']['lat'],
+            "longitud": resultado['location']['lng'],
+            "precision": resultado.get('accuracy', 'N/A')
+        }
     else:
-        print("No se pudo obtener la ubicación.")
+        return {"error": "No se pudo obtener la ubicación."}

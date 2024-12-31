@@ -1,4 +1,5 @@
 # config.py
 import os
 
-GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', 'YOUR_API_KEY')  # Usar variable de entorno o clave por defecto
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', 'YOUR_GOOGLE_API_KEY')
+OPENCELLID_API_KEY = os.getenv('OPENCELLID_API_KEY', 'YOUR_OPENCELLID_API_KEY')
