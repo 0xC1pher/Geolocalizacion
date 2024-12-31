@@ -1,12 +1,11 @@
 # Geolocalizacion
-* Esto es un fork del codigo original de [@eduSatoe]https://github.com/eduSatoe/geolocation
+* Esto es un fork del codigo original de @eduSatoe https://github.com/eduSatoe/geolocation
 * Al cual he agregado unas caracteristicas mas y hay un archivo que registra los cambios que se han logrado y se haran
-
-# Rama dev 
+```
+## Rama dev 
 ## API REST de Geolocalización - Versión 0.1.0
-
 Esta es la primera versión de la API REST de Geolocalización, que permite obtener la ubicación basada en IP, Wi-Fi y torres de celular, combinando resultados de múltiples servicios para mejorar la precisión.
-
+```
 ---
 
 ## Características Principales
